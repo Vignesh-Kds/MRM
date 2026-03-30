@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: ./mrmpg-backend
+      dockerfile: Dockerfile
+    container_name: mrmpg-backend
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+
+  admin:
+    build:
+      context: ./mrmpg-admin
+      dockerfile: Dockerfile
+    container_name: mrmpg-admin
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  user:
+    build:
+      context: ./mrmpg-user
+      dockerfile: Dockerfile
+    container_name: mrmpg-user
+    ports:
+      - "8081:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  member:
+    build:
+      context: ./mrmpg-member
+      dockerfile: Dockerfile
+    container_name: mrmpg-member
+    ports:
+      - "8082:80"
+    depends_on:
+      - backend
+    restart: unless-stopped

@@ -1,0 +1,43 @@
+STEP 1: Installation Setup
+	1. Admin UI
+		CMD1: npm install
+		CMD2: npm run dev
+	2. Member UI
+		CMD1: npm install
+		CMD2: npm run dev
+	3. User UI
+		CMD1: npm install
+		CMD2: npm run dev
+		
+	4. Backend Service
+		CMD1: npm install
+
+STEP 2: Database Setup
+	CMD1: npx prisma generate
+	CMD2: npx prisma db push
+	CMD3: npx prisma migrate dev
+	CMD4: npm run dev
+
+	## Insert this Query in the DB After the Backend Service Excution
+
+	INSERT INTO "Admin" (
+	  id,
+	  name,
+	  email,
+	  password,
+	  "pgType",
+	  "createdAt",
+	  "updatedAt"
+	) VALUES (
+	  'cm_newid123',
+	  'admin',
+	  'admin@gmail.com',
+	  '$2a$12$ypM87aP9PCCO6SfEOUbMxunwArqrx.T.2kapeEVu50EibKUlboO/W',
+	  'MENS',
+	  NOW(),
+	  NOW()
+	);
+
+STEP 3: Credential For Admin Page
+	Username: admin@gmail.com
+	Password: Admin@123
