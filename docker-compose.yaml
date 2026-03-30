@@ -16,7 +16,7 @@ services:
       dockerfile: Dockerfile
     container_name: mrmpg-admin
     ports:
-      - "8080:80"
+      - "8083:80"
     depends_on:
       - backend
     restart: unless-stopped
